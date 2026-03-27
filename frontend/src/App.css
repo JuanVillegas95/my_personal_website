@@ -284,7 +284,7 @@ body,
   max-width: 100%;
   overflow: hidden;
   overflow-y: hidden;
-  padding: 0.72rem 0.8rem;
+  padding: 1rem 0.8rem 0.72rem;
   border-radius: calc(var(--radius) + 0.35rem);
 
   isolation: isolate;
@@ -348,7 +348,7 @@ body,
   flex: 0 0 154px;
   aspect-ratio: 1;
   min-height: 0;
-  padding: 1.98rem 0.52rem 0.45rem;
+  padding: 1.18rem 0.52rem 0.45rem;
   background: linear-gradient(180deg, #ffffff, #f9fafc);
   border: 3px solid #24232a;
   border-radius: 1.15rem;
@@ -370,11 +370,11 @@ body,
 
 .comment-card__tab {
   position: absolute;
-  top: 0.3rem;
-  left: 1.88rem;
-  right: 0.4rem;
-  min-height: 1.55rem;
-  padding: 0.16rem 0.55rem 0.18rem 0.8rem;
+  top: -0.78rem;
+  left: 1.55rem;
+  right: 0.34rem;
+  min-height: 1.48rem;
+  padding: 0.12rem 0.52rem 0.14rem 0.72rem;
   background: linear-gradient(180deg, #ffffff, #eceff4);
   border: 2px solid #e1e5ed;
   border-radius: 999px;
@@ -384,6 +384,7 @@ body,
   display: flex;
   align-items: center;
   justify-content: center;
+  z-index: 1;
 }
 
 .comment-card__title {
@@ -400,16 +401,16 @@ body,
 
 .comment-card__avatar {
   position: absolute;
-  top: 0.02rem;
-  left: 0.28rem;
-  width: 2rem;
-  height: 2rem;
+  top: -0.96rem;
+  left: 0.12rem;
+  width: 2.12rem;
+  height: 2.12rem;
   border-radius: 50%;
   border: 3px solid #ffffff;
   background: linear-gradient(180deg, var(--comment-avatar-start), var(--comment-avatar-end));
   display: grid;
   place-items: center;
-  font-size: 1.08rem;
+  font-size: 1.14rem;
   box-shadow: 0 8px 12px rgba(96, 104, 125, 0.22);
   z-index: 2;
 }
@@ -1242,6 +1243,7 @@ body,
   .home-comments-row {
     --comments-gap: 0.72rem;
     --comments-duration: 44s;
+    padding-top: 0.9rem;
   }
 
   .top-bar {
@@ -1337,18 +1339,27 @@ body,
   .comment-card {
     flex-basis: 136px;
     min-height: 0;
-    padding: 1.76rem 0.45rem 0.38rem;
+    padding: 0.98rem 0.45rem 0.38rem;
   }
 
   .comment-card__tab {
-    left: 1.7rem;
-    right: 0.3rem;
-    min-height: 1.34rem;
-    padding: 0.12rem 0.4rem 0.14rem 0.62rem;
+    top: -0.68rem;
+    left: 1.42rem;
+    right: 0.24rem;
+    min-height: 1.22rem;
+    padding: 0.1rem 0.34rem 0.12rem 0.52rem;
   }
 
   .comment-card__title {
     font-size: 0.74rem;
+  }
+
+  .comment-card__avatar {
+    top: -0.82rem;
+    left: 0.08rem;
+    width: 1.84rem;
+    height: 1.84rem;
+    font-size: 0.96rem;
   }
 
   .comment-card__text {
