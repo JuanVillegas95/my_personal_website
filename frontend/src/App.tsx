@@ -399,7 +399,44 @@ function GuestCommentCard({
   )
 }
 
+function getVisibleCategoryCount(viewportWidth: number) {
+  if (viewportWidth <= 700) return 1
+  if (viewportWidth <= 1024) return 2
+  return 3
+}
+
 function HomeSection({ onNavigate }: { onNavigate: (id: SectionId) => void }) {
+  const [categoryStartIndex, setCategoryStartIndex] = useState(0)
+  const [visibleCategoryCount, setVisibleCategoryCount] = useState(() => {
+    if (typeof window === 'undefined') return 3
+    return getVisibleCategoryCount(window.innerWidth)
+  })
+
+  useEffect(() => {
+    const handleResize = () => setVisibleCategoryCount(getVisibleCategoryCount(window.innerWidth))
+
+    handleResize()
+    window.addEventListener('resize', handleResize)
+
+    return () => window.removeEventListener('resize', handleResize)
+  }, [])
+
+  const normalizedVisibleCategoryCount = Math.min(visibleCategoryCount, categories.length)
+  const canCycleCategories = categories.length > normalizedVisibleCategoryCount
+  const visibleCategories = canCycleCategories
+    ? Array.from({ length: normalizedVisibleCategoryCount }, (_, offset) => categories[(categoryStartIndex + offset) % categories.length])
+    : categories
+
+  function showPreviousCategory() {
+    if (!canCycleCategories) return
+    setCategoryStartIndex(index => (index - 1 + categories.length) % categories.length)
+  }
+
+  function showNextCategory() {
+    if (!canCycleCategories) return
+    setCategoryStartIndex(index => (index + 1) % categories.length)
+  }
+
   return (
     <div className="home">
       <div className="home-comments-row">
@@ -418,21 +455,48 @@ function HomeSection({ onNavigate }: { onNavigate: (id: SectionId) => void }) {
         </div>
       </div>
 
-      <div className="home-categories" aria-label="Site sections">
-        {categories.map(cat => (
-          <button
-            key={cat.id}
-            type="button"
-            className={`cat-card cat-card--${cat.id}`}
-            onClick={() => onNavigate(cat.id)}
+      <div className="home-categories" aria-label="Site sections carousel">
+        <button
+          type="button"
+          className="carousel-btn carousel-btn--prev"
+          onClick={showPreviousCategory}
+          aria-label="Show previous sections"
+          disabled={!canCycleCategories}
+        >
+          <span className="carousel-btn__icon" aria-hidden="true">&larr;</span>
+        </button>
+
+        <div className="home-categories-window" aria-label="Site sections">
+          <div
+            className="home-categories-track"
+            style={{ gridTemplateColumns: `repeat(${visibleCategories.length}, minmax(0, 1fr))` }}
           >
-            <span className="cat-card__label">{cat.label}</span>
-            <span className="cat-card__art" aria-hidden="true">
-              <span className="cat-card__sticker cat-card__sticker--main">{cat.icon}</span>
-              <span className="cat-card__sticker cat-card__sticker--accent">{cat.accent}</span>
-            </span>
-          </button>
-        ))}
+            {visibleCategories.map(cat => (
+              <button
+                key={`${categoryStartIndex}-${cat.id}`}
+                type="button"
+                className={`cat-card cat-card--${cat.id}`}
+                onClick={() => onNavigate(cat.id)}
+              >
+                <span className="cat-card__label">{cat.label}</span>
+                <span className="cat-card__art" aria-hidden="true">
+                  <span className="cat-card__sticker cat-card__sticker--main">{cat.icon}</span>
+                  <span className="cat-card__sticker cat-card__sticker--accent">{cat.accent}</span>
+                </span>
+              </button>
+            ))}
+          </div>
+        </div>
+
+        <button
+          type="button"
+          className="carousel-btn carousel-btn--next"
+          onClick={showNextCategory}
+          aria-label="Show next sections"
+          disabled={!canCycleCategories}
+        >
+          <span className="carousel-btn__icon" aria-hidden="true">&rarr;</span>
+        </button>
       </div>
     </div>
   )
