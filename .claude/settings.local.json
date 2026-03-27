@@ -5,7 +5,8 @@
       "Bash(find /Users/villegas/development/my_personal_website/backend/src -type f -name *.java)",
       "Bash(find /Users/villegas/development/my_personal_website/backend/src -type f -name *.properties)",
       "Bash(find /Users/villegas/development/my_personal_website/frontend -not -path */node_modules/* -not -path */.dist/* -type f)",
-      "Bash(find /Users/villegas/development/my_personal_website/backend -not -path */target/* -not -path */.gradle/* -not -path */.m2/* -type d)"
+      "Bash(find /Users/villegas/development/my_personal_website/backend -not -path */target/* -not -path */.gradle/* -not -path */.m2/* -type d)",
+      "WebSearch"
     ]
   }
 }

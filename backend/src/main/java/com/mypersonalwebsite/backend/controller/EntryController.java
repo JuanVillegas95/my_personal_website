@@ -26,4 +26,21 @@ public class EntryController {
     public ResponseEntity<Entry> create(@RequestBody Entry entry) {
         return ResponseEntity.ok(repo.save(entry));
     }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<Entry> update(@PathVariable Long id, @RequestBody Entry body) {
+        return repo.findById(id).map(entry -> {
+            entry.setTitle(body.getTitle());
+            entry.setLink(body.getLink());
+            entry.setDescription(body.getDescription());
+            return ResponseEntity.ok(repo.save(entry));
+        }).orElse(ResponseEntity.notFound().build());
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> delete(@PathVariable Long id) {
+        if (!repo.existsById(id)) return ResponseEntity.notFound().build();
+        repo.deleteById(id);
+        return ResponseEntity.noContent().build();
+    }
 }

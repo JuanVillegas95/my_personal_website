@@ -1,32 +1,48 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
 :root {
-  font-family:
-    'IBM Plex Mono',
-    'Courier New',
-    Courier,
-    monospace;
-  line-height: 1.5;
-  font-weight: 900;
-  color: #111111;
-  background-color: #f3f3f1;
-  background-image:
-    radial-gradient(ellipse, rgba(0, 0, 255, 0.329) 3.8px, transparent 3.8px),
-    radial-gradient(ellipse, rgba(175, 175, 175, 0.48) 3.8px, transparent 3.8px);
-  background-size: 20px 20px;
-  background-position: 0 0, 10px 10px;
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: none;
-  -moz-osx-font-smoothing: auto;
+  --glass-bg: rgba(255, 255, 255, 0.45);
+  --glass-border: rgba(255, 255, 255, 0.6);
+  --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+  --glass-blur: 18px;
+  --text-primary: #1a1a2e;
+  --text-secondary: #4a4a6a;
+  --text-muted: #8888a8;
+  --accent-pink: #ff6b9d;
+  --accent-blue: #4facfe;
+  --accent-purple: #a855f7;
+  --accent-green: #34d399;
+  --accent-orange: #fb923c;
+  --accent-cyan: #22d3ee;
+  --radius: 1.2rem;
+  --radius-sm: 0.8rem;
 }
 
 * {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 body {
+  min-height: 100vh;
   min-width: 320px;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-weight: 500;
+  color: var(--text-primary);
+  background: linear-gradient(135deg, #e0e7ff 0%, #fce7f3 25%, #e0f2fe 50%, #f3e8ff 75%, #fce7f3 100%);
+  background-attachment: fixed;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 a {
   color: inherit;
+  text-decoration: none;
+}
+
+button {
+  cursor: pointer;
+  font-family: inherit;
 }
