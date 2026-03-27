@@ -278,7 +278,7 @@ body,
 /* Comment cards — horizontal scrolling row */
 .home-comments-row {
   --comments-gap: 0.9rem;
-  --comments-duration: 34s;
+  --comments-duration: 52s;
   position: relative;
   width: 100%;
   max-width: 100%;
@@ -1241,7 +1241,7 @@ body,
 
   .home-comments-row {
     --comments-gap: 0.72rem;
-    --comments-duration: 30s;
+    --comments-duration: 44s;
   }
 
   .top-bar {

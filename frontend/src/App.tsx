@@ -401,14 +401,14 @@ function GuestCommentCard({
 
 function getVisibleCategoryCount(viewportWidth: number) {
   if (viewportWidth <= 700) return 1
-  if (viewportWidth <= 1024) return 2
-  return 3
+  if (viewportWidth <= 1024) return 3
+  return 5
 }
 
 function HomeSection({ onNavigate }: { onNavigate: (id: SectionId) => void }) {
   const [categoryStartIndex, setCategoryStartIndex] = useState(0)
   const [visibleCategoryCount, setVisibleCategoryCount] = useState(() => {
-    if (typeof window === 'undefined') return 3
+    if (typeof window === 'undefined') return 5
     return getVisibleCategoryCount(window.innerWidth)
   })
 
