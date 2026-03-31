@@ -20,28 +20,41 @@
 }
 
 .grid-item__frame {
+  position: relative;
   width: 100%;
   height: 100%;
   overflow: hidden;
   border-radius: 26px;
-  padding: 8px;
-  background-image: linear-gradient(180deg, #ffffff, #f3f3f3);
-  background-repeat: no-repeat;
-  background-size: 200% 200%;
-  background-position: 50% 50%;
+  padding: 6px;
+  background: linear-gradient(180deg, #ffffff, #f3f3f3);
   box-shadow:
     0 10px 22px rgba(180, 180, 180, 0.32),
     inset 0 0 0 1px rgba(255, 255, 255, 0.9);
   transition:
     transform 0.2s ease,
     box-shadow 0.2s ease,
-    filter 0.2s ease,
-    background-position 0.3s ease,
-    background-image 0.2s ease;
-  will-change: transform, background-position;
+    filter 0.2s ease;
+  will-change: transform;
+}
+
+.grid-item__frame::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  border-radius: inherit;
+  background: linear-gradient(135deg, #1ddcff 0%, #49bfff 32%, #7394ff 68%, #d468ff 100%);
+  background-size: 220% 220%;
+  background-position: 0% 50%;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  animation: grid-item-gradient-flow 4.2s linear infinite;
+  pointer-events: none;
 }
 
 .grid-item__image {
+  position: relative;
+  z-index: 1;
   width: 100%;
   height: 100%;
   display: block;
@@ -56,12 +69,16 @@
 .grid-item:hover .grid-item__frame,
 .grid-item:focus-visible .grid-item__frame,
 .grid-item[data-selected='true'] .grid-item__frame {
-  background-image: linear-gradient(135deg, #1ddcff 0%, #49bfff 32%, #7394ff 68%, #d468ff 100%);
-  animation: grid-item-gradient-flow 4.2s linear infinite;
   box-shadow:
     0 12px 26px rgba(79, 183, 255, 0.24),
     0 4px 16px rgba(208, 115, 255, 0.16);
   transform: translateY(-2px) scale(1.015);
+}
+
+.grid-item:hover .grid-item__frame::before,
+.grid-item:focus-visible .grid-item__frame::before,
+.grid-item[data-selected='true'] .grid-item__frame::before {
+  opacity: 1;
 }
 
 .grid-item:hover .grid-item__image,
@@ -86,15 +103,20 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .grid-item__frame::before {
+    animation: none;
+  }
+
   .grid-item:hover .grid-item__frame,
   .grid-item:focus-visible .grid-item__frame,
   .grid-item[data-selected='true'] .grid-item__frame {
-    animation: none;
+    transform: none;
   }
 
   .grid-item:hover .grid-item__image,
   .grid-item:focus-visible .grid-item__image,
   .grid-item[data-selected='true'] .grid-item__image {
+    transform: none;
     transition: none;
   }
 }

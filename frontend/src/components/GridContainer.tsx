@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import './GridContainer.css'
-
+import './SectionPanel.css'
 interface GridItem {
   id: string
   label: string
