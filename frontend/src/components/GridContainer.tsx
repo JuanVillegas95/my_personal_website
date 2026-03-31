@@ -1,40 +1,37 @@
 import './GridContainer.css'
 
-type GridVariant = 'rabbids' | 'wii' | 'mii'
-
 interface GridItem {
   id: string
   label: string
-  variant: GridVariant
+  image: string
 }
 
 const GRID_ITEMS: GridItem[] = [
-  { id: 'rabbids-1', label: 'Rabbids Channel', variant: 'rabbids' },
-  { id: 'wii-1', label: 'Wii Channel', variant: 'wii' },
-  { id: 'mii-1', label: 'Mii Channel', variant: 'mii' },
-  { id: 'rabbids-2', label: 'Rabbids Channel', variant: 'rabbids' },
-  { id: 'wii-2', label: 'Wii Channel', variant: 'wii' },
-  { id: 'mii-2', label: 'Mii Channel', variant: 'mii' },
-  { id: 'rabbids-3', label: 'Rabbids Channel', variant: 'rabbids' },
-  { id: 'wii-3', label: 'Wii Channel', variant: 'wii' },
-  { id: 'mii-3', label: 'Mii Channel', variant: 'mii' },
-  { id: 'rabbids-4', label: 'Rabbids Channel', variant: 'rabbids' },
-  { id: 'wii-4', label: 'Wii Channel', variant: 'wii' },
-  { id: 'mii-4', label: 'Mii Channel', variant: 'mii' },
-  { id: 'rabbids-5', label: 'Rabbids Channel', variant: 'rabbids' },
-  { id: 'wii-5', label: 'Wii Channel', variant: 'wii' },
-  { id: 'mii-5', label: 'Mii Channel', variant: 'mii' },
-  { id: 'rabbids-6', label: 'Rabbids Channel', variant: 'rabbids' },
+  { id: '1', label: 'Forest Scene', image: 'https://picsum.photos/seed/grid-1/480/480' },
+  { id: '2', label: 'City Lights', image: 'https://picsum.photos/seed/grid-2/480/480' },
+  { id: '3', label: 'Ocean View', image: 'https://picsum.photos/seed/grid-3/480/480' },
+  { id: '4', label: 'Mountain Trail', image: 'https://picsum.photos/seed/grid-4/480/480' },
+  { id: '5', label: 'Orange Cat', image: 'https://picsum.photos/seed/grid-5/480/480' },
+  { id: '6', label: 'Retro Car', image: 'https://picsum.photos/seed/grid-6/480/480' },
+  { id: '7', label: 'Palm Trees', image: 'https://picsum.photos/seed/grid-7/480/480' },
+  { id: '8', label: 'Purple Flowers', image: 'https://picsum.photos/seed/grid-8/480/480' },
+  { id: '9', label: 'Night Sky', image: 'https://picsum.photos/seed/grid-9/480/480' },
+  { id: '10', label: 'Rain Street', image: 'https://picsum.photos/seed/grid-10/480/480' },
+  { id: '11', label: 'Desert Road', image: 'https://picsum.photos/seed/grid-11/480/480' },
+  { id: '12', label: 'Blue Lake', image: 'https://picsum.photos/seed/grid-12/480/480' },
+  { id: '13', label: 'Neon Signs', image: 'https://picsum.photos/seed/grid-13/480/480' },
+  { id: '14', label: 'Snow Peaks', image: 'https://picsum.photos/seed/grid-14/480/480' },
+  { id: '15', label: 'Sunset Field', image: 'https://picsum.photos/seed/grid-15/480/480' },
+  { id: '16', label: 'Studio Portrait', image: 'https://picsum.photos/seed/grid-16/480/480' },
 ]
-
-
 
 export function GridContainer() {
   return (
     <div className="grid-container glass">
       {GRID_ITEMS.map(item => (
-        <button key={item.id} type="button" className={`grid-item grid-item--${item.variant}`} aria-label={item.label}>
+        <button key={item.id} type="button" className="grid-item" aria-label={item.label}>
           <div className="grid-item__frame">
+            <img className="grid-item__image" src={item.image} alt={item.label} loading="lazy" />
           </div>
         </button>
       ))}
