@@ -5,6 +5,7 @@ import { EntriesSection } from './components/EntriesSection'
 import { HomeSection } from './components/HomeSection'
 import { PlaceholderSection } from './components/PlaceholderSection'
 import { headerTitles, type SectionId } from './components/sectionConfig'
+import { GridContainer } from './components/GridContainer'
 
 function App() {
   const [activeSection, setActiveSection] = useState<SectionId>('home')
@@ -26,7 +27,7 @@ function App() {
 
   return (
     <AppLayout title={headerTitles[activeSection]} now={now}>
-      {renderMain()}
+      <GridContainer />
     </AppLayout>
   )
 }
