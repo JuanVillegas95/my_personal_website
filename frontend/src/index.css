@@ -24,6 +24,12 @@
   padding: 0;
 }
 
+html,
+body,
+#root {
+  overflow-x: hidden;
+}
+
 body {
   min-height: 100vh;
   min-width: 320px;
@@ -35,6 +41,7 @@ body {
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  
 }
 
 a {
