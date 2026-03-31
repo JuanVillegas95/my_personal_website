@@ -14,17 +14,31 @@
   border: none;
   background: transparent;
   padding: 0;
+  border-radius: 30px;
+  cursor: pointer;
+  outline: none;
 }
 
 .grid-item__frame {
   width: 100%;
   height: 100%;
+  overflow: hidden;
   border-radius: 26px;
   padding: 8px;
-  background: linear-gradient(180deg, #ffffff, #f3f3f3);
+  background-image: linear-gradient(180deg, #ffffff, #f3f3f3);
+  background-repeat: no-repeat;
+  background-size: 200% 200%;
+  background-position: 50% 50%;
   box-shadow:
     0 10px 22px rgba(180, 180, 180, 0.32),
     inset 0 0 0 1px rgba(255, 255, 255, 0.9);
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    filter 0.2s ease,
+    background-position 0.3s ease,
+    background-image 0.2s ease;
+  will-change: transform, background-position;
 }
 
 .grid-item__image {
@@ -33,6 +47,56 @@
   display: block;
   border-radius: 20px;
   object-fit: cover;
+  object-position: center;
+  transform: scale(1);
+  transition: transform 0.25s ease, filter 0.25s ease;
+  will-change: transform, filter;
+}
+
+.grid-item:hover .grid-item__frame,
+.grid-item:focus-visible .grid-item__frame,
+.grid-item[data-selected='true'] .grid-item__frame {
+  background-image: linear-gradient(135deg, #1ddcff 0%, #49bfff 32%, #7394ff 68%, #d468ff 100%);
+  animation: grid-item-gradient-flow 4.2s linear infinite;
+  box-shadow:
+    0 12px 26px rgba(79, 183, 255, 0.24),
+    0 4px 16px rgba(208, 115, 255, 0.16);
+  transform: translateY(-2px) scale(1.015);
+}
+
+.grid-item:hover .grid-item__image,
+.grid-item:focus-visible .grid-item__image,
+.grid-item[data-selected='true'] .grid-item__image {
+  transform: scale(1.001);
+  filter: saturate(1.08) contrast(1.03);
+}
+
+@keyframes grid-item-gradient-flow {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .grid-item:hover .grid-item__frame,
+  .grid-item:focus-visible .grid-item__frame,
+  .grid-item[data-selected='true'] .grid-item__frame {
+    animation: none;
+  }
+
+  .grid-item:hover .grid-item__image,
+  .grid-item:focus-visible .grid-item__image,
+  .grid-item[data-selected='true'] .grid-item__image {
+    transition: none;
+  }
 }
 
 .grid-item:nth-child(1) {

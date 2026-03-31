@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import './GridContainer.css'
 
 interface GridItem {
@@ -26,10 +27,22 @@ const GRID_ITEMS: GridItem[] = [
 ]
 
 export function GridContainer() {
+  const [selectedIndex, setSelectedIndex] = useState(0)
+
   return (
     <div className="grid-container glass">
-      {GRID_ITEMS.map(item => (
-        <button key={item.id} type="button" className="grid-item" aria-label={item.label}>
+      {GRID_ITEMS.map((item, index) => (
+        <button 
+          key={item.id}
+          type="button"
+          className="grid-item"
+          aria-label={item.label}
+          aria-pressed={selectedIndex === index}
+          data-selected={selectedIndex === index ? 'true' : 'false'}
+          onMouseEnter={() => setSelectedIndex(index)}
+          onFocus={() => setSelectedIndex(index)}
+          onClick={() => setSelectedIndex(index)}
+        >
           <div className="grid-item__frame">
             <img className="grid-item__image" src={item.image} alt={item.label} loading="lazy" />
           </div>
