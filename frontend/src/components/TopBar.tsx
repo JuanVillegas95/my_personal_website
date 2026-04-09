@@ -3,7 +3,7 @@ import './TopBar.css'
 export function TopBar({ now, title }: { now: Date; title: string }) {
   return (
     <header className="top-bar">
-      <div className="top-bar__left">
+      <div className="top-bar__left glass">
         <span className="top-bar__title">{title}</span>
       </div>
 

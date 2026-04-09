@@ -1,6 +1,8 @@
 import type { ReactNode } from 'react'
 import { TopBar } from './TopBar'
 import './AppLayout.css'
+import { BottomBar } from './BottomBar'
+
 
 export function AppLayout({
   children,
@@ -15,6 +17,7 @@ export function AppLayout({
     <div className="shell">
       <TopBar title={title} now={now} />
       <main className="main-area">{children}</main>
+      <BottomBar />
     </div>
   )
 }

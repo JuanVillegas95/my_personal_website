@@ -1,6 +1,6 @@
 .grid-container {
   display: grid;
-  grid-template-columns: repeat(7, minmax(120px, 120px));
+  grid-template-columns: repeat(8, minmax(120px, 120px));
   grid-template-rows: repeat(3, 120px);
   gap: 20px;
   padding: 20px 25px;
@@ -8,15 +8,27 @@
   max-width: 1200px;
 }
 
+.glass {
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius);
+  box-shadow: var(--glass-shadow);
+}
+
 .grid-item {
+  display: block;
   width: 100%;
   height: 100%;
   border: none;
   background: transparent;
   padding: 0;
   border-radius: 30px;
+  color: inherit;
   cursor: pointer;
   outline: none;
+  text-decoration: none;
 }
 
 .grid-item__frame {
@@ -43,12 +55,13 @@
   inset: 0;
   z-index: 0;
   border-radius: inherit;
-  background: linear-gradient(135deg, #1ddcff 0%, #49bfff 32%, #7394ff 68%, #d468ff 100%);
-  background-size: 220% 220%;
+  background: linear-gradient(90deg, #1ddcff 0%, #49bfff 24%, #7394ff 52%, #d468ff 78%, #1ddcff 100%);
+  background-repeat: repeat;
+  background-size: 260% 100%;
   background-position: 0% 50%;
   opacity: 0;
   transition: opacity 0.2s ease;
-  animation: grid-item-gradient-flow 4.2s linear infinite;
+  animation: none;
   pointer-events: none;
 }
 
@@ -79,6 +92,7 @@
 .grid-item:focus-visible .grid-item__frame::before,
 .grid-item[data-selected='true'] .grid-item__frame::before {
   opacity: 1;
+  animation: grid-item-gradient-flow 2.8s linear infinite;
 }
 
 .grid-item:hover .grid-item__image,
@@ -93,12 +107,8 @@
     background-position: 0% 50%;
   }
 
-  50% {
-    background-position: 100% 50%;
-  }
-
   100% {
-    background-position: 0% 50%;
+    background-position: 200% 50%;
   }
 }
 
@@ -127,10 +137,10 @@
 
 .grid-item:nth-child(10) {
   grid-row-start: 2;
-  grid-column: 4 / span 2;
+  grid-column: 5 / span 2;
 }
 
 .grid-item:nth-child(11) {
   grid-row: 2 / span 2;
-  grid-column: 6 / span 2;
+  grid-column: 7 / span 2;
 }

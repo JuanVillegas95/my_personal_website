@@ -1,0 +1,30 @@
+<svg width="480" height="480" viewBox="0 0 480 480" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="72" y1="54" x2="402" y2="414" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#111827"/>
+      <stop offset="0.52" stop-color="#0F766E"/>
+      <stop offset="1" stop-color="#2DD4BF"/>
+    </linearGradient>
+    <linearGradient id="page" x1="124" y1="88" x2="340" y2="382" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F8FAFC"/>
+      <stop offset="1" stop-color="#E2E8F0"/>
+    </linearGradient>
+  </defs>
+  <rect width="480" height="480" rx="48" fill="url(#bg)"/>
+  <circle cx="118" cy="104" r="72" fill="#A7F3D0" fill-opacity="0.18"/>
+  <circle cx="388" cy="382" r="110" fill="#0F172A" fill-opacity="0.18"/>
+  <rect x="108" y="78" width="234" height="324" rx="28" fill="url(#page)"/>
+  <path d="M280 78H341C352.046 78 361 86.9543 361 98V158L280 78Z" fill="#CBD5E1"/>
+  <path d="M280 78V138C280 149.046 288.954 158 300 158H361" fill="#E2E8F0"/>
+  <rect x="138" y="140" width="108" height="16" rx="8" fill="#0F172A" fill-opacity="0.84"/>
+  <rect x="138" y="178" width="160" height="10" rx="5" fill="#475569" fill-opacity="0.5"/>
+  <rect x="138" y="208" width="142" height="10" rx="5" fill="#475569" fill-opacity="0.5"/>
+  <rect x="138" y="238" width="170" height="10" rx="5" fill="#475569" fill-opacity="0.5"/>
+  <rect x="138" y="286" width="84" height="84" rx="20" fill="#0F766E" fill-opacity="0.14"/>
+  <path d="M164 302H190C210.987 302 228 319.013 228 340C228 360.987 210.987 378 190 378H164V302Z" fill="#0F172A"/>
+  <rect x="176" y="318" width="12" height="44" rx="6" fill="#E2E8F0"/>
+  <rect x="196" y="318" width="12" height="26" rx="6" fill="#E2E8F0"/>
+  <rect x="236" y="286" width="132" height="52" rx="26" fill="#F43F5E"/>
+  <text x="262" y="320" fill="#FFFFFF" font-family="Arial, sans-serif" font-size="30" font-weight="700">PDF</text>
+  <text x="116" y="438" fill="#F8FAFC" font-family="Georgia, serif" font-size="48" font-weight="700">Resume</text>
+</svg>

@@ -1,0 +1,23 @@
+<svg width="480" height="480" viewBox="0 0 480 480" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="62" y1="44" x2="420" y2="428" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#1F2937"/>
+      <stop offset="0.5" stop-color="#7C3AED"/>
+      <stop offset="1" stop-color="#EC4899"/>
+    </linearGradient>
+  </defs>
+  <rect width="480" height="480" rx="48" fill="url(#bg)"/>
+  <circle cx="382" cy="106" r="84" fill="#F9A8D4" fill-opacity="0.16"/>
+  <circle cx="100" cy="386" r="92" fill="#111827" fill-opacity="0.22"/>
+  <rect x="82" y="86" width="316" height="276" rx="34" fill="#FFFFFF" fill-opacity="0.08" stroke="#FFFFFF" stroke-opacity="0.16"/>
+  <circle cx="160" cy="164" r="26" fill="#FDF2F8"/>
+  <circle cx="320" cy="164" r="26" fill="#FDF2F8"/>
+  <circle cx="240" cy="270" r="26" fill="#FDF2F8"/>
+  <path d="M181 178L219 231" stroke="#FDF2F8" stroke-width="14" stroke-linecap="round"/>
+  <path d="M299 178L261 231" stroke="#FDF2F8" stroke-width="14" stroke-linecap="round"/>
+  <path d="M240 296V332" stroke="#FDF2F8" stroke-width="14" stroke-linecap="round"/>
+  <path d="M128 116L240 84L352 116" stroke="#FDE68A" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M128 116V144" stroke="#FDE68A" stroke-width="8" stroke-linecap="round"/>
+  <path d="M352 116V144" stroke="#FDE68A" stroke-width="8" stroke-linecap="round"/>
+  <text x="104" y="430" fill="#FFFFFF" font-family="Georgia, serif" font-size="52" font-weight="700">Open Source</text>
+</svg>

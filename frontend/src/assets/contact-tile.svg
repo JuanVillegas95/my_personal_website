@@ -1,0 +1,24 @@
+<svg width="480" height="480" viewBox="0 0 480 480" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="58" y1="50" x2="426" y2="426" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#1E293B"/>
+      <stop offset="0.46" stop-color="#2563EB"/>
+      <stop offset="1" stop-color="#38BDF8"/>
+    </linearGradient>
+    <linearGradient id="envelope" x1="122" y1="160" x2="356" y2="332" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F8FAFC"/>
+      <stop offset="1" stop-color="#BFDBFE"/>
+    </linearGradient>
+  </defs>
+  <rect width="480" height="480" rx="48" fill="url(#bg)"/>
+  <circle cx="118" cy="112" r="84" fill="#FFFFFF" fill-opacity="0.08"/>
+  <circle cx="388" cy="372" r="92" fill="#0F172A" fill-opacity="0.16"/>
+  <path d="M112 176C112 158.327 126.327 144 144 144H336C353.673 144 368 158.327 368 176V304C368 321.673 353.673 336 336 336H144C126.327 336 112 321.673 112 304V176Z" fill="url(#envelope)"/>
+  <path d="M112 192L226.282 267.691C234.323 273.018 244.677 273.018 252.718 267.691L368 191.321" stroke="#2563EB" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M152 304L208 248" stroke="#60A5FA" stroke-width="10" stroke-linecap="round"/>
+  <path d="M328 304L272 248" stroke="#60A5FA" stroke-width="10" stroke-linecap="round"/>
+  <circle cx="360" cy="126" r="42" fill="#F97316"/>
+  <path d="M339 126H381" stroke="#FFFFFF" stroke-width="10" stroke-linecap="round"/>
+  <path d="M360 105V147" stroke="#FFFFFF" stroke-width="10" stroke-linecap="round"/>
+  <text x="124" y="404" fill="#F8FAFC" font-family="Georgia, serif" font-size="52" font-weight="700">Contact</text>
+</svg>

@@ -1,0 +1,28 @@
+<svg width="480" height="480" viewBox="0 0 480 480" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="66" y1="52" x2="412" y2="420" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#111827"/>
+      <stop offset="0.5" stop-color="#1D4ED8"/>
+      <stop offset="1" stop-color="#60A5FA"/>
+    </linearGradient>
+    <linearGradient id="card" x1="106" y1="104" x2="356" y2="364" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F8FAFC"/>
+      <stop offset="1" stop-color="#DBEAFE"/>
+    </linearGradient>
+  </defs>
+  <rect width="480" height="480" rx="48" fill="url(#bg)"/>
+  <circle cx="378" cy="94" r="78" fill="#BFDBFE" fill-opacity="0.2"/>
+  <circle cx="112" cy="382" r="96" fill="#0F172A" fill-opacity="0.18"/>
+  <rect x="96" y="88" width="288" height="292" rx="28" fill="#FFFFFF" fill-opacity="0.08" stroke="#FFFFFF" stroke-opacity="0.18"/>
+  <rect x="124" y="118" width="232" height="214" rx="22" fill="url(#card)"/>
+  <path d="M170 176C170 157.222 185.222 142 204 142H276C294.778 142 310 157.222 310 176V184H170V176Z" fill="#1E3A8A"/>
+  <rect x="160" y="204" width="26" height="26" rx="8" fill="#60A5FA"/>
+  <rect x="202" y="208" width="116" height="10" rx="5" fill="#1E293B" fill-opacity="0.84"/>
+  <rect x="202" y="228" width="92" height="8" rx="4" fill="#64748B" fill-opacity="0.55"/>
+  <rect x="160" y="254" width="26" height="26" rx="8" fill="#38BDF8"/>
+  <rect x="202" y="258" width="126" height="10" rx="5" fill="#1E293B" fill-opacity="0.84"/>
+  <rect x="202" y="278" width="102" height="8" rx="4" fill="#64748B" fill-opacity="0.55"/>
+  <path d="M242 334V386" stroke="#F8FAFC" stroke-width="12" stroke-linecap="round"/>
+  <path d="M214 360L242 386L270 360" stroke="#F8FAFC" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="110" y="430" fill="#F8FAFC" font-family="Georgia, serif" font-size="50" font-weight="700">Experience</text>
+</svg>

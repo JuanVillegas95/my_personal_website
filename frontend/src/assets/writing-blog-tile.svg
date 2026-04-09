@@ -1,0 +1,28 @@
+<svg width="480" height="480" viewBox="0 0 480 480" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="64" y1="36" x2="408" y2="432" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#1F2937"/>
+      <stop offset="0.5" stop-color="#3B2F63"/>
+      <stop offset="1" stop-color="#F43F5E"/>
+    </linearGradient>
+    <linearGradient id="paper" x1="98" y1="92" x2="350" y2="366" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFF7ED"/>
+      <stop offset="1" stop-color="#FED7AA"/>
+    </linearGradient>
+  </defs>
+  <rect width="480" height="480" rx="48" fill="url(#bg)"/>
+  <circle cx="382" cy="88" r="72" fill="#FDE68A" fill-opacity="0.2"/>
+  <circle cx="98" cy="392" r="96" fill="#FFFFFF" fill-opacity="0.05"/>
+  <rect x="76" y="62" width="328" height="356" rx="30" fill="#FFFFFF" fill-opacity="0.08" stroke="#FFFFFF" stroke-opacity="0.18"/>
+  <rect x="106" y="98" width="268" height="260" rx="20" fill="url(#paper)"/>
+  <rect x="136" y="148" width="126" height="16" rx="8" fill="#1F2937" fill-opacity="0.86"/>
+  <rect x="136" y="186" width="202" height="10" rx="5" fill="#475569" fill-opacity="0.54"/>
+  <rect x="136" y="214" width="188" height="10" rx="5" fill="#475569" fill-opacity="0.54"/>
+  <rect x="136" y="242" width="166" height="10" rx="5" fill="#475569" fill-opacity="0.54"/>
+  <rect x="136" y="270" width="196" height="10" rx="5" fill="#475569" fill-opacity="0.54"/>
+  <rect x="136" y="298" width="144" height="10" rx="5" fill="#475569" fill-opacity="0.54"/>
+  <path d="M308 334L352 290C360.837 281.163 360.837 266.837 352 258C343.163 249.163 328.837 249.163 320 258L276 302L308 334Z" fill="#FB7185"/>
+  <path d="M264 314L298 348L248 362L264 314Z" fill="#FDE68A"/>
+  <path d="M293 285L325 317" stroke="#7F1D1D" stroke-width="10" stroke-linecap="round"/>
+  <text x="110" y="412" fill="#FFFFFF" font-family="Georgia, serif" font-size="48" font-weight="700">Writing / Blog</text>
+</svg>
