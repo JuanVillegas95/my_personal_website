@@ -45,7 +45,7 @@ export function GridContainer() {
   const [selectedIndex, setSelectedIndex] = useState(0)
 
   return (
-    <div className="grid-container glass">
+    <div className="grid-container">
       {GRID_ITEMS.map((item, index) => {
         const isExternal = isExternalLink(item.link)
 

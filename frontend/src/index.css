@@ -1,21 +1,30 @@
-@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Inter:wght@400;500;600;700;800&family=Lilita+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=Fredoka:wght@500;600;700&family=Inter:wght@400;500;600;700;800&family=Lilita+One&display=swap');
 
 :root {
-  --glass-bg: rgba(255, 255, 255, 0.45);
-  --glass-border: rgba(255, 255, 255, 0.6);
-  --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
-  --glass-blur: 18px;
-  --text-primary: #1a1a2e;
-  --text-secondary: #4a4a6a;
-  --text-muted: #8888a8;
-  --accent-pink: #ff6b9d;
-  --accent-blue: #4facfe;
-  --accent-purple: #a855f7;
-  --accent-green: #34d399;
-  --accent-orange: #fb923c;
-  --accent-cyan: #22d3ee;
-  --radius: 1.2rem;
-  --radius-sm: 0.8rem;
+  --glass-bg:
+    radial-gradient(circle at 18% 12%, rgba(255, 255, 255, 0.94), transparent 18%),
+    radial-gradient(circle at 82% 92%, rgba(195, 225, 255, 0.26), transparent 24%),
+    linear-gradient(180deg, #fbfbfd 0%, #eff2f6 100%);
+  --glass-border: rgba(208, 214, 223, 0.92);
+  --glass-shadow:
+    0 14px 30px rgba(160, 167, 178, 0.2),
+    0 3px 8px rgba(143, 149, 160, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.98),
+    inset 0 -1px 0 rgba(212, 216, 224, 0.45);
+  --glass-blur: 0px;
+  --surface-panel:
+    radial-gradient(circle at 20% 18%, rgba(255, 255, 255, 0.96), transparent 18%),
+    radial-gradient(circle at 82% 84%, rgba(196, 224, 255, 0.2), transparent 24%),
+    linear-gradient(180deg, rgba(248, 249, 252, 0.98), rgba(233, 236, 242, 0.98));
+  --text-primary: #474d59;
+  --text-secondary: #6b7381;
+  --text-muted: #8c94a3;
+  --accent-blue: #48bfff;
+  --accent-blue-strong: #33a4f5;
+  --accent-cyan: #79d8ff;
+  --surface-white: rgba(255, 255, 255, 0.96);
+  --radius: 1.6rem;
+  --radius-sm: 1rem;
 }
 
 * {
@@ -31,12 +40,19 @@ body {
   font-family: 'Inter', system-ui, -apple-system, sans-serif;
   font-weight: 500;
   color: var(--text-primary);
-  background: linear-gradient(135deg, #e0e7ff 0%, #fce7f3 25%, #e0f2fe 50%, #f3e8ff 75%, #fce7f3 100%);
+  background:
+    radial-gradient(circle at 1px 1px, rgba(203, 208, 217, 0.42) 1px, transparent 1.4px) 0 0 / 20px 20px,
+    radial-gradient(circle at 16% 18%, rgba(255, 255, 255, 0.92), transparent 16%),
+    radial-gradient(circle at 84% 14%, rgba(233, 237, 244, 0.85), transparent 18%),
+    linear-gradient(180deg, #fcfcfd 0%, #f3f5f8 48%, #eceff3 100%);
   background-attachment: fixed;
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  
+}
+
+#root {
+  min-height: 100dvh;
 }
 
 a {
@@ -47,4 +63,18 @@ a {
 button {
   cursor: pointer;
   font-family: inherit;
+}
+
+.glass {
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
+}
+
+@media (min-width: 761px) {
+  body {
+    overflow: hidden;
+  }
 }
