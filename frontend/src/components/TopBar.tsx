@@ -12,8 +12,6 @@ export function TopBar({ now, title }: { now: Date; title: string }) {
           <span className="top-bar__party-avatar top-bar__party-avatar--sky" />
           <span className="top-bar__party-avatar top-bar__party-avatar--sand" />
         </div>
-
-        <span className="top-bar__trigger">LT</span>
       </div>
 
       <div className="top-bar__title-shell glass">
@@ -22,8 +20,6 @@ export function TopBar({ now, title }: { now: Date; title: string }) {
 
       <div className="top-bar__cluster top-bar__cluster--right">
         <div className="top-bar__status glass">
-          <span className="top-bar__trigger">RT</span>
-
           <span className="top-bar__status-icon" aria-hidden="true">
             <svg viewBox="0 0 24 24">
               <path d="M12 4.8a5.1 5.1 0 0 0-5.1 5.1v3.1c0 .8-.3 1.5-.9 2.1l-.8.8h13.6l-.8-.8a3 3 0 0 1-.9-2.1V9.9A5.1 5.1 0 0 0 12 4.8Z" />

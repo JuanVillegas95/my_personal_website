@@ -1,4 +1,4 @@
-import { useState, type ReactNode } from 'react'
+import type { ReactNode } from 'react'
 
 interface ToolbarItem {
   id: string
@@ -58,11 +58,8 @@ const toolbarItems: ToolbarItem[] = [
 ]
 
 export function BottomBar() {
-  const [label, setLabel] = useState('')
-
   return (
     <div className="app-toolbar-shell">
-      <div className="app-toolbar__label" data-visible={label ? 'true' : 'false'}>{label}</div>
       <nav className="app-toolbar glass" aria-label="Quick actions">
         {toolbarItems.map(item => (
           <button
@@ -71,10 +68,6 @@ export function BottomBar() {
             className={`app-toolbar__item ${item.active ? 'app-toolbar__item--active' : ''}`}
             aria-label={item.label}
             aria-pressed={item.active ? 'true' : 'false'}
-            onMouseEnter={() => setLabel(item.label)}
-            onFocus={() => setLabel(item.label)}
-            onMouseLeave={() => setLabel('')}
-            onBlur={() => setLabel('')}
           >
             <span className="app-toolbar__icon">{item.icon}</span>
           </button>
