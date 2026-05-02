@@ -1,24 +1,46 @@
 import './TopBar.css'
 
-export function TopBar({ now, title }: { now: Date; title: string }) {
+const partyAvatars = ['ruby', 'mint', 'sky', 'violet', 'gold']
+
+export function TopBar({
+  currentPage,
+  now,
+  pageCount,
+}: {
+  currentPage: number
+  now: Date
+  pageCount: number
+}) {
+  const pageLabel = `Gallery page ${currentPage + 1} of ${pageCount}`
+
   return (
     <header className="top-bar">
       <div className="top-bar__cluster top-bar__cluster--left glass">
-        <span className="top-bar__party-count">+4</span>
+        <span className="top-bar__shoulder top-bar__shoulder--left">LT</span>
 
-        <div className="top-bar__party" aria-hidden="true">
-          <span className="top-bar__party-avatar top-bar__party-avatar--gold" />
-          <span className="top-bar__party-avatar top-bar__party-avatar--coral" />
-          <span className="top-bar__party-avatar top-bar__party-avatar--sky" />
-          <span className="top-bar__party-avatar top-bar__party-avatar--sand" />
+        <div className="top-bar__party" aria-label="Recent media">
+          {partyAvatars.map(avatar => (
+            <span
+              key={avatar}
+              className={`top-bar__party-avatar top-bar__party-avatar--${avatar}`}
+            />
+          ))}
         </div>
       </div>
 
-      <div className="top-bar__title-shell glass">
-        <span className="top-bar__title">{title}</span>
+      <div className="top-bar__pager glass" aria-label={pageLabel}>
+        {Array.from({ length: pageCount }, (_, index) => (
+          <span
+            key={index}
+            className="top-bar__dot"
+            data-active={index === currentPage ? 'true' : 'false'}
+          />
+        ))}
       </div>
 
       <div className="top-bar__cluster top-bar__cluster--right">
+        <span className="top-bar__shoulder top-bar__shoulder--right">RT</span>
+
         <div className="top-bar__status glass">
           <span className="top-bar__status-icon" aria-hidden="true">
             <svg viewBox="0 0 24 24">
@@ -31,9 +53,7 @@ export function TopBar({ now, title }: { now: Date; title: string }) {
             {now.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' })}
           </span>
           <span className="top-bar__sep">|</span>
-          <span className="top-bar__date">
-            {now.toLocaleDateString('en-US', { month: '2-digit', day: '2-digit' })}
-          </span>
+          <span className="top-bar__battery-text">100%</span>
           <span className="top-bar__battery" aria-hidden="true">
             <span className="top-bar__battery-level" />
           </span>

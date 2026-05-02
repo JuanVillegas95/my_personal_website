@@ -1,21 +1,22 @@
 import type { ReactNode } from 'react'
 import { TopBar } from './TopBar'
-import './AppLayout.css'
 import { BottomBar } from './BottomBar'
-
+import './AppLayout.css'
 
 export function AppLayout({
   children,
+  currentPage,
   now,
-  title,
+  pageCount,
 }: {
   children: ReactNode
+  currentPage: number
   now: Date
-  title: string
+  pageCount: number
 }) {
   return (
     <div className="shell">
-      <TopBar title={title} now={now} />
+      <TopBar currentPage={currentPage} now={now} pageCount={pageCount} />
       <main className="main-area">{children}</main>
       <BottomBar />
     </div>
