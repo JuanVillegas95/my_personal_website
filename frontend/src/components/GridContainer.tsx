@@ -171,7 +171,9 @@ export function GridContainer({
                 <span className="gallery-tile__chrome">
                   <MediaSurface item={item} />
                   <span className="gallery-tile__shine" aria-hidden="true" />
-                  <span className="gallery-tile__label">{item.title}</span>
+                </span>
+                <span className="gallery-tile__label">
+                  <span className="gallery-tile__label-text">{item.title}</span>
                 </span>
               </a>
             )
