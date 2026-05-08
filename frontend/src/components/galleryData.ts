@@ -1,4 +1,3 @@
-import aboutMeImage from '../assets/about-me-tile.svg'
 import contactImage from '../assets/contact-tile.svg'
 import experienceImage from '../assets/experience-tile.svg'
 import openSourceImage from '../assets/open-source-tile.svg'
@@ -36,7 +35,7 @@ export const GALLERY_SECTIONS: GallerySection[] = [
       {
         id: 'about',
         title: 'About Me',
-        source: aboutMeImage,
+        source: '/images/about-me.jpeg',
         mediaType: 'image',
         tileSize: 'hero',
         tone: 'mint',
