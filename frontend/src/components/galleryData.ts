@@ -69,7 +69,7 @@ export const GALLERY_SECTIONS: GallerySection[] = [
         tileSize: 'small',
         tone: 'graphite',
         glyph: 'RM',
-        link: 'https://github.com/JuanVillegas95',
+        link: 'https://docs.google.com/document/d/1k9b-5JpFSVCe3Nf_VpzbFy4ojx7QqjZn/edit?usp=sharing&ouid=106965964378759600263&rtpof=true&sd=true',
       },
       {
         id: 'linkedin',
@@ -84,7 +84,7 @@ export const GALLERY_SECTIONS: GallerySection[] = [
       {
         id: 'contact-me',
         title: 'Contact me',
-        source: 'https://cdn.prod.website-files.com/645c01ff2d797fbf2d960bfc/687426d1bdde1d9ca50dbada_apple-mail.png',
+        source: '/music/hikari%20%E5%85%89/img.jpeg',
         mediaType: 'image',
         tileSize: 'tall',
         tone: 'coral',
@@ -94,7 +94,7 @@ export const GALLERY_SECTIONS: GallerySection[] = [
       {
         id: 'contact-me',
         title: 'Contact me',
-        source: 'https://www.ellenstipsforios.com/wp-content/uploads/2022/02/Mail-Featured-image.png',
+        source: '/music/hikari%20%E5%85%89/img.jpeg',
         mediaType: 'image',
         tileSize: 'small',
         tone: 'blue',
@@ -132,13 +132,14 @@ export const GALLERY_SECTIONS: GallerySection[] = [
         source: "/images/muerte_moshe.jpeg"
       },
             {
-        id: 'lab',
-        title: 'Lab',
-        mediaType: 'placeholder',
+        id: 'mail',
+        title: 'Send mail',
+        mediaType: 'image',
         tileSize: 'small',
-        tone: 'violet',
-        glyph: 'LB',
-        link: '#',
+        tone: 'blue',
+        source: 'https://static0.howtogeekimages.com/wordpress/wp-content/uploads/2022/10/apple_mail_logo_2.jpg',
+        glyph: 'ML',
+        link: 'mailto:juanemail2001@gmail.com?subject=Contact%20from%20portfolio%20website&body=Hello%20Juan%2C%0A%0AI%27m%20contacting%20you%20from%20your%20personal%20portfolio%20website.%0A%0A',
       },
             {
         id: 'lab',
