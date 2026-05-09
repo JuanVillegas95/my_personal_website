@@ -60,7 +60,7 @@ export function TopBar({
         </div>
 
         <div className="top-bar__profile" aria-hidden="true">
-          <span className="top-bar__profile-mark">JV</span>
+          <img className="top-bar__profile-icon" src="/images/monke.png" alt="" />
         </div>
       </div>
     </header>
