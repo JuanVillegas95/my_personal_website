@@ -122,13 +122,14 @@ export const GALLERY_SECTIONS: GallerySection[] = [
         link: '#',
       },
       {
-        id: 'lab',
-        title: 'Lab',
-        mediaType: 'placeholder',
+        id: 'muerte_moshe',
+        title: 'Muerte Moshe',
+        mediaType: 'image',
         tileSize: 'small',
-        tone: 'violet',
-        glyph: 'LB',
-        link: '#',
+        tone: 'mint',
+        glyph: 'MM',
+        link: 'https://muerte-moshe.pages.dev',
+        source: "/images/muerte_moshe.jpeg"
       },
             {
         id: 'lab',
