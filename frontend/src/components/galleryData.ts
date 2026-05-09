@@ -1,4 +1,3 @@
-import contactImage from '../assets/contact-tile.svg'
 import experienceImage from '../assets/experience-tile.svg'
 import openSourceImage from '../assets/open-source-tile.svg'
 import resumePdfImage from '../assets/resume-pdf-tile.svg'
