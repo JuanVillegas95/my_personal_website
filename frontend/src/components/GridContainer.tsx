@@ -1,20 +1,20 @@
 import type { CSSProperties } from 'react'
-import { useEffect, useState } from 'react'
-import { GALLERY_PAGE_COUNT, GALLERY_SECTIONS, MEDIA_TYPES, type GalleryItem } from './galleryData'
+import { useMemo, useState } from 'react'
+import ImageGallery from 'react-image-gallery'
+import 'react-image-gallery/styles/image-gallery.css'
+import { GALLERY_PAGE_COUNT, GALLERY_SECTIONS, MEDIA_TYPES, SLIDESHOW_EFFECTS, type GalleryItem } from './galleryData'
 import './GridContainer.css'
 
 const isExternalLink = (link: string) => /^https?:\/\//.test(link)
 const isPlaceholderLink = (link: string) => link === '#'
-const SLIDESHOW_INTERVAL_MS = 5000
-const SLIDESHOW_FADE_MS = 900
-
-type SlidePhase = 'visible' | 'fade-out' | 'fade-in'
+const DEFAULT_SLIDESHOW_INTERVAL_SECONDS = 3
+const MIN_SLIDESHOW_INTERVAL_SECONDS = 0.5
 
 function getBoundedPage(page: number) {
   return Math.min(Math.max(page, 0), GALLERY_PAGE_COUNT - 1)
 }
 
-function getInitialSlideIndex(item: GalleryItem) {
+function getSlideshowStartIndex(item: GalleryItem) {
   if (item.mediaType !== MEDIA_TYPES.SLIDESHOW || item.source.length === 0) {
     return 0
   }
@@ -22,77 +22,59 @@ function getInitialSlideIndex(item: GalleryItem) {
   return Math.floor(Math.random() * item.source.length)
 }
 
+function getSlideshowIntervalMs(intervalSeconds?: number) {
+  const safeIntervalSeconds =
+    typeof intervalSeconds === 'number' && Number.isFinite(intervalSeconds)
+      ? Math.max(intervalSeconds, MIN_SLIDESHOW_INTERVAL_SECONDS)
+      : DEFAULT_SLIDESHOW_INTERVAL_SECONDS
+
+  return safeIntervalSeconds * 1000
+}
+
 function MediaSurface({ item }: { item: GalleryItem }) {
   const [hasMediaError, setHasMediaError] = useState(false)
-  const [activeSlideIndex, setActiveSlideIndex] = useState(() => getInitialSlideIndex(item))
-  const [slidePhase, setSlidePhase] = useState<SlidePhase>('visible')
-  const slideshowSources = item.mediaType === MEDIA_TYPES.SLIDESHOW ? item.source : []
-
-  useEffect(() => {
+  const [slideshowStartIndex] = useState(() => getSlideshowStartIndex(item))
+  const slideshowImages = useMemo(() => {
     if (item.mediaType !== MEDIA_TYPES.SLIDESHOW) {
-      return
+      return []
     }
 
-    item.source.forEach(source => {
-      const image = new Image()
-      image.src = source
-    })
+    return item.source.map(source => ({
+      original: source,
+      thumbnail: source,
+    }))
   }, [item])
 
-  useEffect(() => {
-    if (item.mediaType !== MEDIA_TYPES.SLIDESHOW || slideshowSources.length <= 1 || hasMediaError) {
-      return
-    }
-
-    const intervalId = window.setInterval(() => {
-      setSlidePhase('fade-out')
-    }, SLIDESHOW_INTERVAL_MS)
-
-    return () => window.clearInterval(intervalId)
-  }, [hasMediaError, item.mediaType, slideshowSources.length])
-
-  useEffect(() => {
-    if (slidePhase !== 'fade-out') {
-      return
-    }
-
-    const timeoutId = window.setTimeout(() => {
-      setActiveSlideIndex(currentIndex => (currentIndex + 1) % slideshowSources.length)
-      setSlidePhase('fade-in')
-    }, SLIDESHOW_FADE_MS)
-
-    return () => window.clearTimeout(timeoutId)
-  }, [slidePhase, slideshowSources.length])
-
-  useEffect(() => {
-    if (slidePhase !== 'fade-in') {
-      return
-    }
-
-    const timeoutId = window.setTimeout(() => setSlidePhase('visible'), SLIDESHOW_FADE_MS)
-
-    return () => window.clearTimeout(timeoutId)
-  }, [slidePhase])
-
   if (item.mediaType === MEDIA_TYPES.SLIDESHOW) {
-    const hasSlides = slideshowSources.length > 0 && !hasMediaError
+    const hasSlides = slideshowImages.length > 0 && !hasMediaError
+    const slideshowEffect = item.slideshowEffect ?? SLIDESHOW_EFFECTS.SLIDE
+    const usesFadeEffect = slideshowEffect === SLIDESHOW_EFFECTS.FADE
+    const slideshowIntervalMs = getSlideshowIntervalMs(item.slideshowIntervalSeconds)
 
     if (hasSlides) {
-      const activeSource = slideshowSources[activeSlideIndex % slideshowSources.length]
-
       return (
-        <span className="gallery-tile__media gallery-tile__slideshow" aria-hidden="true">
-          {activeSource ? (
-            <img
-              key={`${activeSlideIndex}-${slidePhase}-${activeSource}`}
-              className={`gallery-tile__slide gallery-tile__slide--${slidePhase}`}
-              src={activeSource}
-              alt=""
-              loading="lazy"
-              onError={() => setHasMediaError(true)}
-            />
-          ) : null}
-        </span>
+        <div
+          className={`gallery-tile__media gallery-tile__slideshow gallery-tile__slideshow--${slideshowEffect}`}
+          aria-hidden="true"
+        >
+          <ImageGallery
+            items={slideshowImages}
+            autoPlay
+            startIndex={slideshowStartIndex}
+            slideInterval={slideshowIntervalMs}
+            slideDuration={usesFadeEffect ? 700 : 550}
+            slideVertically={slideshowEffect === SLIDESHOW_EFFECTS.VERTICAL}
+            disableSwipe={usesFadeEffect}
+            disableKeyDown
+            lazyLoad
+            showBullets={false}
+            showFullscreenButton={false}
+            showNav={false}
+            showPlayButton={false}
+            showThumbnails={false}
+            onImageError={() => setHasMediaError(true)}
+          />
+        </div>
       )
     }
 

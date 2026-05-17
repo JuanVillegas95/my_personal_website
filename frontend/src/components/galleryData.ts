@@ -13,6 +13,14 @@ export const MEDIA_TYPES = {
 export type MediaType = (typeof MEDIA_TYPES)[keyof typeof MEDIA_TYPES]
 export type SingleSourceMediaType = Exclude<MediaType, typeof MEDIA_TYPES.SLIDESHOW>
 
+export const SLIDESHOW_EFFECTS = {
+  FADE: 'fade',
+  SLIDE: 'slide',
+  VERTICAL: 'vertical',
+} as const
+
+export type SlideshowEffect = (typeof SLIDESHOW_EFFECTS)[keyof typeof SLIDESHOW_EFFECTS]
+
 export const TILE_SIZES = {
   HERO: 'hero',
   SMALL: 'small',
@@ -50,6 +58,8 @@ export type GalleryItem =
   | (GalleryItemBase & {
       mediaType: typeof MEDIA_TYPES.SLIDESHOW
       source: string[]
+      slideshowEffect?: SlideshowEffect
+      slideshowIntervalSeconds?: number
     })
 
 export interface GallerySection {
@@ -106,13 +116,25 @@ export const GALLERY_SECTIONS: GallerySection[] = [
 {
   id: 'my-slideshow',
   title: 'My Slideshow',
-  mediaType: MEDIA_TYPES.SLIDESHOW,
+  mediaType: MEDIA_TYPES.IMAGE,
   tileSize: TILE_SIZES.TALL,
-  tone: TILE_TONES.BLUE,
+  tone: TILE_TONES.MINT,
+  glyph: 'SS',
+  source: 
+    '/images/2.jpg',
+
+      },
+      {
+  id: 'my-slideshow-2',
+  title: ':)',
+  mediaType: MEDIA_TYPES.SLIDESHOW,
+  slideshowEffect: SLIDESHOW_EFFECTS.FADE,
+  slideshowIntervalSeconds: 5,
+  tileSize: TILE_SIZES.TALL,
+  tone: TILE_TONES.VIOLET,
   glyph: 'SS',
   source: [
     '/images/1.jpg',
-    '/images/2.jpg',
     '/images/3.jpg',
     '/images/4.jpg',
     '/images/5.jpg',
@@ -122,17 +144,7 @@ export const GALLERY_SECTIONS: GallerySection[] = [
   ],
 },
       {
-        id: 'linkedin',
-        title: 'LinkedIn',
-        mediaType: MEDIA_TYPES.IMAGE,
-        tileSize: TILE_SIZES.TALL,
-         source: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/LinkedIn_icon.svg/1280px-LinkedIn_icon.svg.png',
-        tone: TILE_TONES.BLUE,
-        glyph: 'IN',
-        link: 'https://www.linkedin.com/in/juan-villegas97/',
-      },
-      {
-        id: 'linkedin',
+        id: 'linkedin-small',
         title: 'LinkedIn',
         mediaType: MEDIA_TYPES.IMAGE,
         tileSize: TILE_SIZES.SMALL,
@@ -162,7 +174,7 @@ export const GALLERY_SECTIONS: GallerySection[] = [
         link: '#',
       },
       {
-        id: 'muerte_moshe',
+        id: 'valentine',
         title: 'Valentine',
         mediaType: MEDIA_TYPES.GIF,
         tileSize: TILE_SIZES.SMALL,
@@ -182,7 +194,7 @@ export const GALLERY_SECTIONS: GallerySection[] = [
         link: 'mailto:juanemail2001@gmail.com?subject=Contact%20from%20portfolio%20website&body=Hello%20Juan%2C%0A%0AI%27m%20contacting%20you%20from%20your%20personal%20portfolio%20website.%0A%0A',
       },
             {
-       id: 'muerte_moshe',
+       id: 'muerte-moshe',
         title: 'Muerte Moshe',
         mediaType: MEDIA_TYPES.IMAGE,
         tileSize: TILE_SIZES.SMALL,
@@ -191,16 +203,23 @@ export const GALLERY_SECTIONS: GallerySection[] = [
         link: 'https://muerte-moshe.pages.dev',
         source: "/images/muerte_moshe.jpeg"
       },
-      {
-        id: 'notes',
-        title: 'Notes',
-        source: '/music/hikari%20%E5%85%89/img.jpeg',
-        mediaType: MEDIA_TYPES.IMAGE,
-        tileSize: TILE_SIZES.WIDE,
-        tone: TILE_TONES.CORAL,
-        glyph: 'NT',
-        link: '#',
-      },
+{
+  id: 'my-slideshow-3',
+  title: ':D',
+  mediaType: MEDIA_TYPES.SLIDESHOW,
+  slideshowEffect: SLIDESHOW_EFFECTS.VERTICAL,
+  slideshowIntervalSeconds: 7,
+  tileSize: TILE_SIZES.WIDE,
+  tone: TILE_TONES.VIOLET,
+  glyph: 'SS',
+  source: [
+    '/images/8.jpg',
+    '/images/9.jpg',
+    '/images/10.jpg',
+    '/images/11.jpg',
+  ],
+}
+
     ],
   },
   {
@@ -228,7 +247,7 @@ export const GALLERY_SECTIONS: GallerySection[] = [
         link: '#',
       },
       {
-        id: 'resume',
+        id: 'resume-pdf',
         title: 'Resume',
         source: resumePdfImage,
         mediaType: MEDIA_TYPES.IMAGE,
