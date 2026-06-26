@@ -47,7 +47,8 @@ interface GalleryItemBase {
   tileSize: TileSize
   tone: TileTone
   glyph: string
-  link?: string
+  websiteLink?: string
+  githubLink?: string
 }
 
 export type GalleryItem =
@@ -72,28 +73,8 @@ export interface GallerySection {
 export const GALLERY_SECTIONS: GallerySection[] = [
   {
     id: 'profile',
-    label: 'Profile',
+    label: 'Projects',
     items: [
-      {
-        id: 'about',
-        title: 'About Me',
-        source: '/images/about-me.jpeg',
-        mediaType: MEDIA_TYPES.IMAGE,
-        tileSize: TILE_SIZES.HERO,
-        tone: TILE_TONES.MINT,
-        glyph: 'JV',
-        link: 'https://about-me-azo.pages.dev',
-      },
-      {
-        id: 'github',
-        title: 'GitHub',
-        mediaType: MEDIA_TYPES.IMAGE,
-        tileSize: TILE_SIZES.SMALL,
-        tone: TILE_TONES.GRAPHITE,
-        glyph: 'GH',
-        link: 'https://github.com/JuanVillegas95',
-        source: 'https://camo.githubusercontent.com/e7e2e4c44e3f14bea8123598db8f7dc62fa0c77193e2e7b962bf871777cba717/68747470733a2f2f6564656e742e6769746875622e696f2f537570657254696e7949636f6e732f696d616765732f706e672f6769746875622e706e67'
-      },
       {
         id: 'bulbasur',
         title: 'Pikachu',
@@ -111,7 +92,7 @@ export const GALLERY_SECTIONS: GallerySection[] = [
         tileSize: TILE_SIZES.SMALL,
         tone: TILE_TONES.GRAPHITE,
         glyph: 'RM',
-        link: 'https://docs.google.com/document/d/1k9b-5JpFSVCe3Nf_VpzbFy4ojx7QqjZn/edit?usp=sharing&ouid=106965964378759600263&rtpof=true&sd=true',
+        websiteLink: 'https://docs.google.com/document/d/1k9b-5JpFSVCe3Nf_VpzbFy4ojx7QqjZn/edit?usp=sharing&ouid=106965964378759600263&rtpof=true&sd=true',
       },
 {
   id: 'my-slideshow',
@@ -144,16 +125,6 @@ export const GALLERY_SECTIONS: GallerySection[] = [
   ],
 },
       {
-        id: 'linkedin-small',
-        title: 'LinkedIn',
-        mediaType: MEDIA_TYPES.IMAGE,
-        tileSize: TILE_SIZES.SMALL,
-         source: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/LinkedIn_icon.svg/1280px-LinkedIn_icon.svg.png',
-        tone: TILE_TONES.BLUE,
-        glyph: 'IN',
-        link: 'https://www.linkedin.com/in/juan-villegas97/',
-      },
-      {
         id: 'x-mas',
         title: 'x-mas',
         source: '/images/x-mas.jpeg',
@@ -161,7 +132,8 @@ export const GALLERY_SECTIONS: GallerySection[] = [
         tileSize: TILE_SIZES.WIDE,
         tone: TILE_TONES.BLUE,
         glyph: 'XM',
-        link: 'https://824066e3.honecita-x-mas.pages.dev',
+        websiteLink: 'https://824066e3.honecita-x-mas.pages.dev',
+        githubLink: 'https://github.com/JuanVillegas95/honecita-x-mas'
       },
       {
         id: 'music-room',
@@ -171,7 +143,6 @@ export const GALLERY_SECTIONS: GallerySection[] = [
         tileSize: TILE_SIZES.SMALL,
         tone: TILE_TONES.GOLD,
         glyph: 'MR',
-        link: '#',
       },
       {
         id: 'valentine',
@@ -180,18 +151,9 @@ export const GALLERY_SECTIONS: GallerySection[] = [
         tileSize: TILE_SIZES.SMALL,
         tone: TILE_TONES.VIOLET,
         glyph: 'VT',
-        link: 'https://valentine-c5b.pages.dev',
-        source: "https://media.tenor.com/sbfBfp3FeY8AAAAj/oia-uia.gif"
-      },
-            {
-        id: 'mail',
-        title: 'Send mail',
-        mediaType: MEDIA_TYPES.IMAGE,
-        tileSize: TILE_SIZES.SMALL,
-        tone: TILE_TONES.BLUE,
-        source: 'https://static0.howtogeekimages.com/wordpress/wp-content/uploads/2022/10/apple_mail_logo_2.jpg',
-        glyph: 'ML',
-        link: 'mailto:juanemail2001@gmail.com?subject=Contact%20from%20portfolio%20website&body=Hello%20Juan%2C%0A%0AI%27m%20contacting%20you%20from%20your%20personal%20portfolio%20website.%0A%0A',
+        websiteLink: 'https://valentine-c5b.pages.dev',
+        source: "https://media.tenor.com/sbfBfp3FeY8AAAAj/oia-uia.gif",
+        githubLink: "https://github.com/JuanVillegas95/valentine"
       },
             {
        id: 'muerte-moshe',
@@ -200,7 +162,8 @@ export const GALLERY_SECTIONS: GallerySection[] = [
         tileSize: TILE_SIZES.SMALL,
         tone: TILE_TONES.MINT,
         glyph: 'MM',
-        link: 'https://muerte-moshe.pages.dev',
+        websiteLink: 'https://muerte-moshe.pages.dev',
+        githubLink: 'https://github.com/JuanVillegas95/muerte-moshe',
         source: "/images/muerte_moshe.jpeg"
       },
 {
@@ -224,7 +187,7 @@ export const GALLERY_SECTIONS: GallerySection[] = [
   },
   {
     id: 'work',
-    label: 'Work',
+    label: 'Home',
     items: [
       {
         id: 'experience',
@@ -234,7 +197,6 @@ export const GALLERY_SECTIONS: GallerySection[] = [
         tileSize: TILE_SIZES.HERO,
         tone: TILE_TONES.BLUE,
         glyph: 'EX',
-        link: '#',
       },
       {
         id: 'tech-stack',
@@ -244,7 +206,6 @@ export const GALLERY_SECTIONS: GallerySection[] = [
         tileSize: TILE_SIZES.TALL,
         tone: TILE_TONES.VIOLET,
         glyph: 'TS',
-        link: '#',
       },
       {
         id: 'resume-pdf',
@@ -254,7 +215,6 @@ export const GALLERY_SECTIONS: GallerySection[] = [
         tileSize: TILE_SIZES.SMALL,
         tone: TILE_TONES.GOLD,
         glyph: 'CV',
-        link: '#',
       },
       {
         id: 'open-source',
@@ -264,7 +224,7 @@ export const GALLERY_SECTIONS: GallerySection[] = [
         tileSize: TILE_SIZES.WIDE,
         tone: TILE_TONES.GRAPHITE,
         glyph: 'OS',
-        link: 'https://github.com/JuanVillegas95',
+        githubLink: 'https://github.com/JuanVillegas95',
       },
       {
         id: 'lilium',
@@ -274,7 +234,6 @@ export const GALLERY_SECTIONS: GallerySection[] = [
         tileSize: TILE_SIZES.WIDE,
         tone: TILE_TONES.CORAL,
         glyph: 'LI',
-        link: '#',
       },
       {
         id: 'build-notes',
@@ -283,7 +242,6 @@ export const GALLERY_SECTIONS: GallerySection[] = [
         tileSize: TILE_SIZES.SMALL,
         tone: TILE_TONES.MINT,
         glyph: 'BN',
-        link: '#',
       },
       {
         id: 'ambient-loop',
@@ -292,7 +250,6 @@ export const GALLERY_SECTIONS: GallerySection[] = [
         tileSize: TILE_SIZES.SMALL,
         tone: TILE_TONES.VIOLET,
         glyph: 'AL',
-        link: '#',
       },
       {
         id: 'systems',
@@ -301,7 +258,6 @@ export const GALLERY_SECTIONS: GallerySection[] = [
         tileSize: TILE_SIZES.WIDE,
         tone: TILE_TONES.GRAPHITE,
         glyph: 'SY',
-        link: '#',
       },
       {
         id: 'homelab',
@@ -310,7 +266,6 @@ export const GALLERY_SECTIONS: GallerySection[] = [
         tileSize: TILE_SIZES.WIDE,
         tone: TILE_TONES.MINT,
         glyph: 'HL',
-        link: '#',
       },
       {
         id: 'toolkit',
@@ -320,7 +275,6 @@ export const GALLERY_SECTIONS: GallerySection[] = [
         tileSize: TILE_SIZES.TALL,
         tone: TILE_TONES.BLUE,
         glyph: 'TK',
-        link: '#',
       },
       {
         id: 'ideas',
@@ -329,13 +283,12 @@ export const GALLERY_SECTIONS: GallerySection[] = [
         tileSize: TILE_SIZES.SMALL,
         tone: TILE_TONES.GOLD,
         glyph: 'ID',
-        link: '#',
       },
     ],
   },
   {
     id: 'media',
-    label: 'Media',
+    label: 'Educational Achievements',
     items: [
       {
         id: 'media-drop',
@@ -344,7 +297,6 @@ export const GALLERY_SECTIONS: GallerySection[] = [
         tileSize: TILE_SIZES.HERO,
         tone: TILE_TONES.CORAL,
         glyph: 'MD',
-        link: '#',
       },
       {
         id: 'hikari',
@@ -354,7 +306,6 @@ export const GALLERY_SECTIONS: GallerySection[] = [
         tileSize: TILE_SIZES.WIDE,
         tone: TILE_TONES.GOLD,
         glyph: 'HI',
-        link: '#',
       },
       {
         id: 'photo-strip',
@@ -363,7 +314,6 @@ export const GALLERY_SECTIONS: GallerySection[] = [
         tileSize: TILE_SIZES.TALL,
         tone: TILE_TONES.BLUE,
         glyph: 'PS',
-        link: '#',
       },
       {
         id: 'gif-slot',
@@ -372,7 +322,6 @@ export const GALLERY_SECTIONS: GallerySection[] = [
         tileSize: TILE_SIZES.SMALL,
         tone: TILE_TONES.MINT,
         glyph: 'GF',
-        link: '#',
       },
       {
         id: 'video-slot',
@@ -381,7 +330,6 @@ export const GALLERY_SECTIONS: GallerySection[] = [
         tileSize: TILE_SIZES.WIDE,
         tone: TILE_TONES.GRAPHITE,
         glyph: 'VD',
-        link: '#',
       },
       {
         id: 'archive',
@@ -390,7 +338,6 @@ export const GALLERY_SECTIONS: GallerySection[] = [
         tileSize: TILE_SIZES.SMALL,
         tone: TILE_TONES.VIOLET,
         glyph: 'AR',
-        link: '#',
       },
       {
         id: 'frame-set',
@@ -399,7 +346,6 @@ export const GALLERY_SECTIONS: GallerySection[] = [
         tileSize: TILE_SIZES.WIDE,
         tone: TILE_TONES.BLUE,
         glyph: 'FS',
-        link: '#',
       },
       {
         id: 'audio-log',
@@ -409,7 +355,6 @@ export const GALLERY_SECTIONS: GallerySection[] = [
         tileSize: TILE_SIZES.WIDE,
         tone: TILE_TONES.GOLD,
         glyph: 'AU',
-        link: '#',
       },
       {
         id: 'clip-bank',
@@ -418,7 +363,6 @@ export const GALLERY_SECTIONS: GallerySection[] = [
         tileSize: TILE_SIZES.WIDE,
         tone: TILE_TONES.GRAPHITE,
         glyph: 'CB',
-        link: '#',
       },
       {
         id: 'snapshots',
@@ -428,7 +372,6 @@ export const GALLERY_SECTIONS: GallerySection[] = [
         tileSize: TILE_SIZES.WIDE,
         tone: TILE_TONES.CORAL,
         glyph: 'SN',
-        link: '#',
       },
     ],
   },

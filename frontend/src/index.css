@@ -1,15 +1,20 @@
 :root {
-  --console-chrome-width: min(calc(100vw - 2rem), clamp(60rem, 68vw, 92rem));
+  --max-app-width: 1512px;
+  --dashboard-edge-space: clamp(1rem, 1.2vw, 1.5rem);
+  --portfolio-background-image: none;
+  --console-chrome-width: calc(
+    min(100vw, var(--max-app-width)) - var(--dashboard-edge-space) - var(--dashboard-edge-space)
+  );
   --glass-bg:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.82), rgba(246, 248, 251, 0.7)),
-    linear-gradient(120deg, rgba(255, 255, 255, 0.48), rgba(221, 233, 241, 0.24));
-  --glass-border: rgba(211, 218, 226, 0.78);
+    linear-gradient(180deg, rgba(255, 255, 255, 0.38), rgba(218, 229, 239, 0.18)),
+    linear-gradient(120deg, rgba(255, 255, 255, 0.24), rgba(51, 63, 78, 0.1));
+  --glass-border: rgba(255, 255, 255, 0.54);
   --glass-shadow:
-    0 0.9rem 1.9rem rgba(132, 145, 160, 0.18),
-    0 0.2rem 0.55rem rgba(119, 130, 146, 0.1),
-    inset 0 1px 0 rgba(255, 255, 255, 0.95),
-    inset 0 -1px 0 rgba(211, 218, 226, 0.38);
-  --glass-blur: 20px;
+    0 1.05rem 2.1rem rgba(18, 27, 40, 0.2),
+    0 0.22rem 0.72rem rgba(18, 27, 40, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.58),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.2);
+  --glass-blur: 24px;
   --text-primary: #424956;
   --text-secondary: #657080;
   --surface-white: rgba(255, 255, 255, 0.88);
@@ -68,6 +73,18 @@ body {
   line-height: 1.5;
 }
 
+body[data-has-custom-background='true'] {
+  background:
+    linear-gradient(120deg, rgba(242, 249, 246, 0.34), rgba(246, 248, 252, 0.26)),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.16), rgba(18, 27, 40, 0.18)),
+    var(--portfolio-background-image),
+    #eef5f2;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
 body::before {
   content: '';
   position: fixed;
@@ -79,6 +96,15 @@ body::before {
     linear-gradient(315deg, rgba(223, 235, 248, 0.62), transparent 48%);
   filter: blur(18px);
   transform: scale(1.02);
+}
+
+body[data-has-custom-background='true']::before {
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.26), rgba(255, 255, 255, 0.06)),
+    radial-gradient(circle at 50% 20%, rgba(255, 255, 255, 0.16), transparent 38%);
+  filter: none;
+  opacity: 0.48;
+  transform: none;
 }
 
 #root {
@@ -105,8 +131,8 @@ a:focus-visible {
   background: var(--glass-bg);
   border: 1px solid var(--glass-border);
   box-shadow: var(--glass-shadow);
-  backdrop-filter: blur(var(--glass-blur)) saturate(1.08);
-  -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(1.08);
+  backdrop-filter: blur(var(--glass-blur)) saturate(1.22) contrast(1.02);
+  -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(1.22) contrast(1.02);
 }
 
 @media (min-width: 761px) {

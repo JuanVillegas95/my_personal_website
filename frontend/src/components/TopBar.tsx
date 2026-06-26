@@ -5,10 +5,12 @@ const partyAvatars = ['ruby', 'mint', 'sky', 'violet', 'gold']
 export function TopBar({
   currentPage,
   now,
+  onOpenChat,
   pageCount,
 }: {
   currentPage: number
   now: Date
+  onOpenChat: () => void
   pageCount: number
 }) {
   const pageLabel = `Gallery page ${currentPage + 1} of ${pageCount}`
@@ -16,7 +18,14 @@ export function TopBar({
   return (
     <header className="top-bar">
       <div className="top-bar__cluster top-bar__cluster--left glass">
-        <span className="top-bar__shoulder top-bar__shoulder--left">LT</span>
+        <button
+          type="button"
+          className="top-bar__shoulder top-bar__shoulder--left top-bar__shoulder--button"
+          aria-label="Open chat"
+          onClick={onOpenChat}
+        >
+          Chat
+        </button>
 
         <div className="top-bar__party" aria-label="Recent media">
           {partyAvatars.map(avatar => (
