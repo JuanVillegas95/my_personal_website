@@ -8,17 +8,23 @@ export interface BackgroundOption {
 }
 
 export function BackgroundDrawer({
+  ariaLabel = 'Background picker',
+  eyebrow = 'Gallery',
   isOpen,
   onClose,
   onSelect,
   options,
   selectedSource,
+  title = 'Background',
 }: {
+  ariaLabel?: string
+  eyebrow?: string
   isOpen: boolean
   onClose: () => void
   onSelect: (source: string) => void
   options: BackgroundOption[]
   selectedSource: string
+  title?: string
 }) {
   const panelRef = useRef<HTMLElement | null>(null)
 
@@ -59,7 +65,7 @@ export function BackgroundDrawer({
   }
 
   return (
-    <div className="background-drawer" aria-label="Background picker">
+    <div className="background-drawer" aria-label={ariaLabel}>
       <button
         type="button"
         className="background-drawer__scrim"
@@ -75,9 +81,9 @@ export function BackgroundDrawer({
       >
         <div className="background-drawer__header">
           <div>
-            <p className="background-drawer__eyebrow">Gallery</p>
+            <p className="background-drawer__eyebrow">{eyebrow}</p>
             <h2 id="background-drawer-title" className="background-drawer__title">
-              Background
+              {title}
             </h2>
           </div>
           <button type="button" className="background-drawer__close" aria-label="Close" onClick={onClose}>

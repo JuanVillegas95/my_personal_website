@@ -144,11 +144,13 @@ function ControlHint({
 export function BottomBar({
   currentPage,
   onOpenBackgroundPicker,
+  onOpenGridBackgroundPicker,
   onPageChange,
   pageCount,
 }: {
   currentPage: number
   onOpenBackgroundPicker: () => void
+  onOpenGridBackgroundPicker: () => void
   onPageChange: (page: number) => void
   pageCount: number
 }) {
@@ -161,7 +163,12 @@ export function BottomBar({
           label="Background"
           onClick={onOpenBackgroundPicker}
         />
-        <ControlHint control="-" label="Details" />
+        <ControlHint
+          ariaLabel="Change grid background"
+          control="-"
+          label="Grid BG"
+          onClick={onOpenGridBackgroundPicker}
+        />
       </div>
 
       <nav className="app-toolbar glass" aria-label="Quick actions">

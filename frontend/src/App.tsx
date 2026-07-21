@@ -50,9 +50,12 @@ function App() {
   const [now, setNow] = useState(() => new Date())
   const [currentPage, setCurrentPage] = useState(() => Math.min(1, GALLERY_PAGE_COUNT - 1))
   const [selectedBackground, setSelectedBackground] = useState('')
+  const [selectedGridBackgrounds, setSelectedGridBackgrounds] = useState<Record<number, string>>({})
   const [isBackgroundPickerOpen, setIsBackgroundPickerOpen] = useState(false)
+  const [isGridBackgroundPickerOpen, setIsGridBackgroundPickerOpen] = useState(false)
   const [isChatOpen, setIsChatOpen] = useState(false)
   const backgroundOptions = useMemo(() => getBackgroundOptions(), [])
+  const selectedGridBackground = selectedGridBackgrounds[currentPage] ?? ''
 
   useEffect(() => {
     const intervalId = window.setInterval(() => {
@@ -88,12 +91,15 @@ function App() {
       currentPage={currentPage}
       isBackgroundPickerOpen={isBackgroundPickerOpen}
       isChatOpen={isChatOpen}
+      isGridBackgroundPickerOpen={isGridBackgroundPickerOpen}
       now={now}
       pageCount={GALLERY_PAGE_COUNT}
       selectedBackground={selectedBackground}
+      selectedGridBackground={selectedGridBackground}
       onBackgroundPickerClose={() => setIsBackgroundPickerOpen(false)}
       onBackgroundPickerOpen={() => {
         setIsChatOpen(false)
+        setIsGridBackgroundPickerOpen(false)
         setIsBackgroundPickerOpen(true)
       }}
       onBackgroundSelect={source => {
@@ -103,11 +109,29 @@ function App() {
       onChatClose={() => setIsChatOpen(false)}
       onChatOpen={() => {
         setIsBackgroundPickerOpen(false)
+        setIsGridBackgroundPickerOpen(false)
         setIsChatOpen(true)
+      }}
+      onGridBackgroundPickerClose={() => setIsGridBackgroundPickerOpen(false)}
+      onGridBackgroundPickerOpen={() => {
+        setIsChatOpen(false)
+        setIsBackgroundPickerOpen(false)
+        setIsGridBackgroundPickerOpen(true)
+      }}
+      onGridBackgroundSelect={source => {
+        setSelectedGridBackgrounds(currentBackgrounds => ({
+          ...currentBackgrounds,
+          [currentPage]: source,
+        }))
+        setIsGridBackgroundPickerOpen(false)
       }}
       onPageChange={setCurrentPage}
     >
-      <GridContainer currentPage={currentPage} onPageChange={setCurrentPage} />
+      <GridContainer
+        currentPage={currentPage}
+        gridBackground={selectedGridBackground}
+        onPageChange={setCurrentPage}
+      />
     </AppLayout>
   )
 }

@@ -245,9 +245,11 @@ function TileBack({
 
 export function GridContainer({
   currentPage,
+  gridBackground,
   onPageChange,
 }: {
   currentPage: number
+  gridBackground: string
   onPageChange: (page: number) => void
 }) {
   const [selectedIndex, setSelectedIndex] = useState(0)
@@ -456,7 +458,13 @@ export function GridContainer({
               key={GALLERY_SECTIONS[activePage].id}
               className="gallery-page glass"
               aria-label={GALLERY_SECTIONS[activePage].label}
-              style={{ '--page': activePage } as CSSProperties}
+              data-has-grid-background={gridBackground ? 'true' : 'false'}
+              style={
+                {
+                  '--gallery-grid-background-image': gridBackground ? `url("${gridBackground}")` : 'none',
+                  '--page': activePage,
+                } as CSSProperties
+              }
             >
               {activeItems.map((item, itemIndex) => {
                 const isSelected = selectedItemIndex === itemIndex
